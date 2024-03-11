@@ -21,7 +21,8 @@ useSeoMeta({
 
           {{ page.hero.headline.label }}
 
-          <UIcon v-if="page.hero.headline.icon" :name="page.hero.headline.icon" class="ml-1 w-4 h-4 pointer-events-none" />
+          <UIcon v-if="page.hero.headline.icon" :name="page.hero.headline.icon"
+            class="ml-1 w-4 h-4 pointer-events-none" />
         </UBadge>
       </template>
 
@@ -37,5 +38,29 @@ useSeoMeta({
         <ULandingCard v-for="(item, index) of page.features.items" :key="index" v-bind="item" />
       </UPageGrid>
     </ULandingSection>
+
+    <ULandingSection :title="page.testimonials.title">
+      <UPageColumns>
+        <UPageCard v-for="(testimonial, index) in page.testimonials.items" :key="index">
+          <q class="italic text-gray-500 dark:text-gray-400">
+            {{ testimonial.quote }}
+          </q>
+
+          <div class="flex gap-x-3 items-center mt-3">
+            <UAvatar :src="testimonial.author.avatar" :alt="testimonial.author.name" size="sm" />
+
+            <div class="min-w-0 text-sm">
+              <p class="font-semibold">
+                {{ testimonial.author.name }}
+              </p>
+              <p class="truncate">
+                {{ testimonial.author.job }}
+              </p>
+            </div>
+          </div>
+        </UPageCard>
+      </UPageColumns>
+    </ULandingSection>
+
   </div>
 </template>

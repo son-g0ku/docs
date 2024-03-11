@@ -14,18 +14,18 @@ useHead({
     { name: 'viewport', content: 'width=device-width, initial-scale=1' }
   ],
   link: [
-    { rel: 'icon', href: '/favicon.ico' }
+    { rel: 'icon', href: 'https://7.isyangs.cn/1/65eb3dcb5e099-1.png' }
   ],
   htmlAttrs: {
-    lang: 'en'
+    lang: 'zh-CN'
   }
 })
 
 useSeoMeta({
   titleTemplate: `%s - ${seo?.siteName}`,
   ogSiteName: seo?.siteName,
-  ogImage: 'https://docs-template.nuxt.dev/social-card.png',
-  twitterImage: 'https://docs-template.nuxt.dev/social-card.png',
+  ogImage: 'https://7.isyangs.cn/1/65eb3dcb5e099-1.png',
+  twitterImage: 'https://7.isyangs.cn/1/65eb3dcb5e099-1.png',
   twitterCard: 'summary_large_image'
 })
 
@@ -34,7 +34,7 @@ provide('navigation', navigation)
 
 <template>
   <div>
-    <NuxtLoadingIndicator />
+    <NuxtLoadingIndicator color="rgb(var(--color-primary-500) / var(--tw-text-opacity))" />
 
     <Header />
 

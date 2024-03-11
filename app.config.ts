@@ -1,6 +1,6 @@
 export default defineAppConfig({
   ui: {
-    primary: 'green',
+    primary: 'blue',
     gray: 'slate',
     footer: {
       bottom: {
@@ -20,59 +20,52 @@ export default defineAppConfig({
     },
     search: true,
     colorMode: true,
-    links: [{
-      icon: 'i-simple-icons-github',
-      to: 'https://github.com/nuxt-ui-pro/docs',
-      target: '_blank',
-      'aria-label': 'Docs template on GitHub'
-    }]
+    links: [
+      {
+        icon: 'i-simple-icons-github',
+        to: 'https://github.com/valor-x/hexo-theme-solitude',
+        target: '_blank',
+        'aria-label': 'Theme on GitHub',
+      },
+    ],
   },
   footer: {
-    credits: 'Copyright © 2023',
+    credits: 'Copyright © 2023 Efu',
     colorMode: false,
-    links: [{
-      icon: 'i-simple-icons-nuxtdotjs',
-      to: 'https://nuxt.com',
-      target: '_blank',
-      'aria-label': 'Nuxt Website'
-    }, {
-      icon: 'i-simple-icons-discord',
-      to: 'https://discord.com/invite/ps2h6QT',
-      target: '_blank',
-      'aria-label': 'Nuxt UI on Discord'
-    }, {
-      icon: 'i-simple-icons-x',
-      to: 'https://x.com/nuxt_js',
-      target: '_blank',
-      'aria-label': 'Nuxt on X'
-    }, {
-      icon: 'i-simple-icons-github',
-      to: 'https://github.com/nuxt/ui',
-      target: '_blank',
-      'aria-label': 'Nuxt UI on GitHub'
-    }]
+    links: [
+      {
+        icon: 'i-simple-icons-github',
+        to: 'https://github.com/valor-x/hexo-theme-solitude',
+        target: '_blank',
+        'aria-label': 'Solitude on GitHub',
+      },
+      {
+        icon: 'i-simple-icons-telegram',
+        to: 'https://t.me/efuome',
+        target: '_blank',
+        'aria-label': 'Telegram',
+      }
+    ]
   },
   toc: {
-    title: 'Table of Contents',
+    title: '目录',
     bottom: {
-      title: 'Community',
-      edit: 'https://github.com/nuxt-ui-pro/docs/edit/main/content',
-      links: [{
-        icon: 'i-heroicons-star',
-        label: 'Star on GitHub',
-        to: 'https://github.com/nuxt/ui',
-        target: '_blank',
-      }, {
-        icon: 'i-heroicons-book-open',
-        label: 'Nuxt UI Pro docs',
-        to: 'https://ui.nuxt.com/pro/guide',
-        target: '_blank',
-      }, {
-        icon: 'i-simple-icons-nuxtdotjs',
-        label: 'Purchase a license',
-        to: 'https://ui.nuxt.com/pro/purchase',
-        target: '_blank',
-      }]
-    }
-  }
+      title: '相关链接',
+      edit: '在 GitHub 上编辑',
+      links: [
+        {
+          icon: 'i-heroicons-star',
+          label: '点个 Star 吧！',
+          to: 'https://github.com/valor-x/hexo-theme-solitude',
+          target: '_blank',
+        },
+        {
+          icon: 'i-heroicons-photo',
+          label: '去图图床',
+          to: 'https://7tu.top/',
+          target: '_blank',
+        }
+      ],
+    },
+  },
 })

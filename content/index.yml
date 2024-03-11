@@ -1,68 +1,78 @@
-title: 'Nuxt UI Pro - Docs template'
-description: Nuxt UI Pro is a collection of premium Vue components built on top of Nuxt UI to create beautiful & responsive Nuxt applications in minutes.
+title: "Solitude - 一款优雅的 Hexo 主题"
+description: "欢迎使用 Solitude 主题，这是一款优雅的 Hexo 主题。"
 navigation: false
 hero:
-  title: 'Build your docs in seconds'
-  description: 'Create your documentation in seconds with this template!'
+  title: "Theme Solitude"
+  description: "一款优雅的 Hexo 主题"
   orientation: horizontal
   headline:
-    label: Made with Nuxt UI Pro
-    to: https://ui.nuxt.com/pro
+    label: 作者博客
+    to: https://efu.me
     icon: i-heroicons-arrow-top-right-on-square-20-solid
   links:
-    - label: Get started
-      icon: i-heroicons-arrow-right-20-solid
+    - label: 开始使用
+      icon: i-heroicons-arrow-right-circle-20-solid
       trailing: true
-      to: '/getting-started'
+      to: "/getting-started"
       size: lg
-    - label: Use this template
+    - label: 在 GitHub 上查看
       icon: i-simple-icons-github
       size: lg
       color: gray
-      to: https://github.com/nuxt-ui-pro/docs
+      to: https://github.com/valor-x/hexo-theme-solitude
+      target: _blank
+    - label: 在 Gitee 上查看
+      icon: i-simple-icons-gitee
+      size: lg
+      color: gray
+      to: https://gitee.com/nsjjd_w/hexo-theme-solitude
       target: _blank
   code: |
     ```bash [Terminal]
-    npx nuxi init -t github:nuxt-ui-pro/docs
+    npm install hexo-theme-solitude
     ```
 features:
-  title: 'All-in-one docs template'
-  links:
-    - label: 'Explore Nuxt UI Pro'
-      icon: 'i-simple-icons-nuxtdotjs'
-      trailingIcon: 'i-heroicons-arrow-right-20-solid'
-      color: 'gray'
-      to: 'https://ui.nuxt.com/pro'
-      target: '_blank'
-      size: lg
+  title: "All-in-one hexo theme"
   items:
-    - title: 'Nuxt 3'
-      description: 'Powered by Nuxt 3 for optimal performances and SEO.'
-      icon: 'i-simple-icons-nuxtdotjs'
-      to: 'https://nuxt.com'
-      target: '_blank'
-    - title: 'Markdown'
-      description: 'Write your pages with MDC thanks to Nuxt Content.'
-      icon: 'i-simple-icons-markdown'
-      to: 'https://content.nuxt.com'
-      target: '_blank'
-    - title: 'Nuxt UI'
-      description: 'Offers a very large set of full customizable components.'
-      icon: 'i-heroicons-sparkles-20-solid'
-      to: 'https://ui.nuxt.com'
-      target: '_blank'
-    - title: 'TypeScript'
-      description: 'A fully typed development experience.'
-      icon: 'i-simple-icons-typescript'
-      to: 'https://www.typescriptlang.org'
-      target: '_blank'
-    - title: 'Nuxt Studio'
-      description: 'Supported by Nuxt Studio for fast updates and previews.'
-      icon: 'i-simple-icons-nuxtdotjs'
-      to: 'https://nuxt.studio'
-      target: '_blank'
-    - title: 'Search'
-      description: 'A full-text search modal empowered by Fuse.js.'
-      icon: 'i-heroicons-magnifying-glass-20-solid'
-      to: 'https://ui.nuxt.com/pro/components/docs/docs-search'
-      target: '_blank'
+    - title: "Markdown"
+      description: "支持丰富的 Tags Plugin，让你可以更方便的写作。"
+      icon: "i-simple-icons-markdown"
+    - title: "PWA"
+      description: "支持 PWA，可以让你的网站离线访问。"
+      icon: "i-simple-icons-pwa"
+    - title: "Comments"
+      description: "支持多种评论系统，包括 Waline 和 Twikoo。"
+      icon: "i-heroicons-chat-bubble-bottom-center-text-20-solid"
+      to: ""
+    - title: "Speed"
+      description: "优化了加载速度，让你的网站更快。"
+      icon: "i-simple-icons-speedtest"
+      to: ""
+    - title: "SEO"
+      description: "优化了 SEO，让你的网站更容易被搜索引擎收录。"
+      icon: "i-heroicons-sparkles-20-solid"
+      to: ""
+    - title: "Extensible"
+      description: "提供了丰富的配置项，让你可以自定义你的网站。"
+      icon: "i-heroicons-cpu-chip-20-solid"
+      to: ""
+
+testimonials:
+  title: "What people are saying"
+  link: "Read all testimonials"
+  items:
+    - quote: "主题经过了20个版本的更新迭代，已经非常成熟了。"
+      author:
+        name: "Efu"
+        job: "开发者"
+        avatar: "https://avatars.githubusercontent.com/u/74389842?v=4"
+    - quote: "这是一款非常优雅的主题，我非常喜欢。"
+      author:
+        name: "理随"
+        job: "使用者"
+        avatar: "https://avatars.githubusercontent.com/u/145828868?v=4"
+    - quote: "完美囊括我的所有需求，好用，爱用。"
+      author:
+        name: "btwoa"
+        job: "使用者"
+        avatar: "https://avatars.githubusercontent.com/u/109867618?v=4"
