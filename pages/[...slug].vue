@@ -62,6 +62,10 @@ const links = computed(() => [toc?.bottom?.edit && {
 
             <UPageLinks :title="toc.bottom.title" :links="links" />
           </div>
+
+          <UDivider type="dashed" />
+
+          <AdsBlog />
         </template>
       </UContentToc>
     </template>
