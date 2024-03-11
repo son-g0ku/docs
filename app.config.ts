@@ -51,7 +51,7 @@ export default defineAppConfig({
     title: '目录',
     bottom: {
       title: '相关链接',
-      edit: 'https://github.com/efuo/docs/edit/main',
+      edit: 'https://github.com/efuo/docs/edit/main/content',
       links: [
         {
           icon: 'i-heroicons-star',
