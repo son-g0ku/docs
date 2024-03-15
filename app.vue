@@ -36,6 +36,8 @@ provide('navigation', navigation)
   <div>
     <NuxtLoadingIndicator color="rgb(var(--color-primary-500) / var(--tw-text-opacity))" />
 
+    <Banner />
+
     <Header />
 
     <UMain>
