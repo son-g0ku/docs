@@ -26,7 +26,7 @@ export default defineNuxtConfig({
     enabled: true
   },
   typescript: {
-    strict: false
+    strict: true
   },
   sitemap: {
     strictNuxtContentPaths: true,
@@ -36,5 +36,6 @@ export default defineNuxtConfig({
       { label: 'Priority', select: 'sitemap:priority', width: '12.5%' },
       { label: 'Change Frequency', select: 'sitemap:changefreq', width: '12.5%' },
     ],
-  }
+  },
+  ssr: true
 })

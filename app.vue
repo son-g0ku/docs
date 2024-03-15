@@ -14,7 +14,7 @@ useHead({
     { name: 'viewport', content: 'width=device-width, initial-scale=1' }
   ],
   link: [
-    { rel: 'icon', href: 'https://7.isyangs.cn/1/65eb3dcb5e099-1.png' }
+    { rel: 'icon', href: 'https://7.isyangs.cn/34/65f43d1e0137b-34.png' }
   ],
   htmlAttrs: {
     lang: 'zh-CN'
@@ -24,8 +24,8 @@ useHead({
 useSeoMeta({
   titleTemplate: `%s - ${seo?.siteName}`,
   ogSiteName: seo?.siteName,
-  ogImage: 'https://7.isyangs.cn/1/65eb3dcb5e099-1.png',
-  twitterImage: 'https://7.isyangs.cn/1/65eb3dcb5e099-1.png',
+  ogImage: 'https://7.isyangs.cn/34/65f43d568a918-34.png',
+  twitterImage: 'https://7.isyangs.cn/34/65f43d568a918-34.png',
   twitterCard: 'summary_large_image'
 })
 
