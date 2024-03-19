@@ -25,7 +25,7 @@ if (process.server) {
 <template>
   <div class="relative bg-primary hover:bg-primary/90 transition-[background] backdrop-blur z-50 app-banner">
     <UContainer class="py-2">
-      <NuxtLink v-if="to" :to="to" class="focus:outline-none" aria-label="内置ICON命名已更改为：solitude st-xxx 形式" tabindex="-1" target="_blank" no-rel>
+      <NuxtLink v-if="to" :to="to" class="focus:outline-none" aria-label="相册页面已移除，具体恢复待重建后请注意。" tabindex="-1" target="_blank" no-rel>
         <span class="absolute inset-0 " aria-hidden="true" />
       </NuxtLink>
 
@@ -34,7 +34,7 @@ if (process.server) {
 
         <p class="text-sm font-medium text-white dark:text-gray-900">
           <UIcon name="i-heroicons-megaphone" class="w-5 h-5 align-top flex-shrink-0 pointer-events-none mr-2" />
-          <span class="font-semibold">内置 ICON 命名应更改为：</span>solitude st-xxx ，请注意更新。
+          <span class="font-semibold">相册页面已移除，具体恢复待重建后</span>请注意。
         </p>
 
         <div class="flex items-center justify-end lg:flex-1">
