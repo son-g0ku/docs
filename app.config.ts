@@ -47,7 +47,7 @@ export default defineAppConfig({
       },
       {
         icon: 'i-heroicons-heart',
-        to: 'https://afdian.net/a/efu0u0',
+        to: 'https://7.isyangs.cn/34/65f2e5814db1a-34.png',
         target: '_blank',
         'aria-label': '赞助作者',
       }
@@ -74,7 +74,7 @@ export default defineAppConfig({
         {
           icon: 'i-heroicons-heart',
           label: '赞助作者',
-          to: 'https://afdian.net/a/efu0u0',
+          to: 'https://7.isyangs.cn/34/65f2e5814db1a-34.png',
           target: '_blank',
         }
       ],
