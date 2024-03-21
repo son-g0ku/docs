@@ -44,12 +44,6 @@ export default defineAppConfig({
         to: 'https://t.me/efuome',
         target: '_blank',
         'aria-label': 'Telegram',
-      },
-      {
-        icon: 'i-heroicons-heart',
-        to: 'https://7.isyangs.cn/34/65f2e5814db1a-34.png',
-        target: '_blank',
-        'aria-label': '赞助作者',
       }
     ]
   },
@@ -69,12 +63,6 @@ export default defineAppConfig({
           icon: 'i-heroicons-photo',
           label: '去图图床',
           to: 'https://7tu.top/',
-          target: '_blank',
-        },
-        {
-          icon: 'i-heroicons-heart',
-          label: '赞助作者',
-          to: 'https://7.isyangs.cn/34/65f2e5814db1a-34.png',
           target: '_blank',
         }
       ],
