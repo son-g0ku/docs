@@ -4,7 +4,7 @@
       id: 1,
       title: '晞云云计算',
       link: 'https://lightxi.com/',
-      logo: 'https://lightxi.com/assets/images/logo.png',
+      logo: 'https://www.lightxi.com/themes/web/lightxi/assets/images/logo.png',
       image: 'https://7.isyangs.cn/1/65eb26fbe43b4-1.png',
       alt: '晞云云计算',
       description: '新一代云计算平台',

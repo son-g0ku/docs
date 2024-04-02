@@ -37,5 +37,5 @@ export default defineNuxtConfig({
       { label: 'Change Frequency', select: 'sitemap:changefreq', width: '12.5%' },
     ],
   },
-  ssr: true
+  ssr: false
 })

@@ -61,11 +61,6 @@ testimonials:
   title: "What people are saying"
   link: "Read all testimonials"
   items:
-    - quote: "主题经过了20个版本的更新迭代，已经非常成熟了。"
-      author:
-        name: "Efu"
-        job: "开发者"
-        avatar: "https://avatars.githubusercontent.com/u/74389842?v=4"
     - quote: "这是一款非常优雅的主题，我非常喜欢。"
       author:
         name: "理随"
