@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { withoutTrailingSlash } from 'ufo'
+import AdsSponsor from '~/components/ads/adsSponsor.vue'
 
 definePageMeta({
   layout: 'docs'
@@ -62,10 +63,9 @@ const links = computed(() => [toc?.bottom?.edit && {
 
             <UPageLinks :title="toc.bottom.title" :links="links" />
           </div>
-
           <div class="hidden lg:block space-y-6" :class="{ '!mt-6': 2 }">
             <UDivider type="dashed" />
-            <AdsBlog />
+            <AdsSponsor />
           </div>
         </template>
       </UContentToc>

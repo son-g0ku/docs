@@ -3,12 +3,12 @@ description: "欢迎使用 Solitude 主题，这是一款优雅的 Hexo 主题�
 navigation: false
 hero:
   title: "Theme Solitude"
-  description: "一款优雅的 Hexo 主题"
+  description: "一款优雅的 Hexo 主题，支持懒加载、PWA、Latex以及多种评论系统。"
   orientation: horizontal
   headline:
-    label: 作者博客
-    to: https://efu.me
-    icon: i-heroicons-arrow-top-right-on-square-20-solid
+    label: Solitude 1.7.10 现已发布！
+    to: https://github.com/valor-x/hexo-theme-solitude/releases/latest
+    icon: i-heroicons-sparkles-20-solid
   links:
     - label: 开始使用
       icon: i-heroicons-arrow-right-circle-20-solid
@@ -31,6 +31,8 @@ hero:
     ```bash [Terminal]
     npm install hexo-theme-solitude
     ```
+cta:
+  title: 因为热爱，<br class=“hidden lg：block”>我们汇聚在一起。
 features:
   title: "All-in-one hexo theme"
   items:
@@ -41,33 +43,18 @@ features:
       description: "支持 PWA，可以让你的网站离线访问。"
       icon: "i-simple-icons-pwa"
     - title: "Comments"
-      description: "支持多种评论系统，包括 Waline 和 Twikoo。"
+      description: "支持多种评论系统(Valine、Waline、Twikoo)。"
       icon: "i-heroicons-chat-bubble-bottom-center-text-20-solid"
       to: ""
     - title: "Speed"
-      description: "优化了加载速度，让你的网站更快。"
+      description: "优化加载速度，让你的网站加载速度更快。"
       icon: "i-simple-icons-speedtest"
       to: ""
     - title: "SEO"
-      description: "优化了 SEO，让你的网站更容易被搜索引擎收录。"
+      description: "优化 SEO，让你的网站更容易被搜索引擎收录。"
       icon: "i-heroicons-sparkles-20-solid"
       to: ""
     - title: "Extensible"
-      description: "提供了丰富的配置项，让你可以自定义你的网站。"
+      description: "提供了丰富的配置项"
       icon: "i-heroicons-cpu-chip-20-solid"
       to: ""
-
-testimonials:
-  title: "What people are saying"
-  link: "Read all testimonials"
-  items:
-    - quote: "这是一款非常优雅的主题，我非常喜欢。"
-      author:
-        name: "理随"
-        job: "使用者"
-        avatar: "https://avatars.githubusercontent.com/u/145828868?v=4"
-    - quote: "完美囊括我的所有需求，好用，爱用。"
-      author:
-        name: "btwoa"
-        job: "使用者"
-        avatar: "https://avatars.githubusercontent.com/u/109867618?v=4"

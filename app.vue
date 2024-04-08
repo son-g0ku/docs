@@ -12,7 +12,7 @@ const { data: files } = useLazyFetch<ParsedContent[]>('/api/search.json', {
 useHead({
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-    { name: 'baidu-site-verification',content: 'codeva-gUX7ssU6Ed' } 
+    { name: 'baidu-site-verification',content: 'codeva-gUX7ssU6Ed' }
   ],
   link: [
     { rel: 'icon', href: 'https://7.isyangs.cn/34/65f43d1e0137b-34.png' }
