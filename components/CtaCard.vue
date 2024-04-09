@@ -1,84 +1,46 @@
-<script lang="ts">
-import axios from 'axios'
+<script setup lang="ts">
+import request from "~/composables/request";
 
-export default {
-  data() {
-    return {
-      state: {
-        star: 0,
-        downloads: 0,
-        contributors:[]
-      },
-    }
-  },
-  mounted() {
-    this.fetchState()
-  },
-  methods: {
-    set: function setWithExpiry(key, value, ttl) {
-      if (ttl === 0)
-        return
-      const now = new Date()
-      const expiryDay = ttl * 86400000
-      const item = {
-        value: value,
-        expiry: now.getTime() + expiryDay,
-      }
-      localStorage.setItem(key, JSON.stringify(item))
-    },
-
-    get: function getWithExpiry(key) {
-      const itemStr = localStorage.getItem(key)
-
-      if (!itemStr) {
-        return undefined
-      }
-      const item = JSON.parse(itemStr)
-      const now = new Date()
-
-      if (now.getTime() > item.expiry) {
-        localStorage.removeItem(key)
-        return undefined
-      }
-      return item.value
-    },
-    async fetchState() {
-      const {format} = Intl.NumberFormat('en', {notation: 'compact'})
-      const cache = this.get('state')
-      console.log('cache', cache)
-      if (cache !== undefined && cache !== null) {
-        this.state = cache
-        return
-      }
-      try {
-        await axios.get('https://api.github.com/repos/valor-x/hexo-theme-solitude/contributors')
-          .then(res => {
-            this.state.contributors = res.data.map(item => ({
-              login: item.login,
-              html_url: item.html_url,
-              avatar_url: item.avatar_url,
-            }))
-          })
-        await axios.get('https://api.github.com/repos/valor-x/hexo-theme-solitude')
-          .then(res => {
-            this.state.star = format(res.data.stargazers_count)
-          })
-
-        const today = new Date()
-        const formattedToday = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`
-        const lastYear = new Date(new Date().setFullYear(today.getFullYear() - 1))
-        const formattedLastYear = `${lastYear.getFullYear()}-${String(lastYear.getMonth() + 1).padStart(2, '0')}-${String(lastYear.getDate()).padStart(2, '0')}`
-        const timeRange = `${formattedLastYear}:${formattedToday}`
-        const downloads = await useFetch(`https://api.npmjs.org/downloads/point/${timeRange}/hexo-theme-solitude`)
-        this.state.downloads = format(downloads.data.value?.downloads)
-        this.set('state', this.state, 0.2)
-      } catch (error) {
-        console.error(error)
-      }
-    },
-  },
+interface Contributor {
+  login: string;
+  html_url: string;
+  avatar_url: string;
 }
 
+const star = ref("0");
+const downloads = ref("0");
+const contributors: Ref<Contributor[]> = ref([]);
+
+function getTimeRange() {
+  const today = new Date();
+  const formattedToday = `${today.getFullYear()}-${String(
+    today.getMonth() + 1
+  ).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
+  const lastYear = new Date(new Date().setFullYear(today.getFullYear() - 1));
+  const formattedLastYear = `${lastYear.getFullYear()}-${String(
+    lastYear.getMonth() + 1
+  ).padStart(2, "0")}-${String(lastYear.getDate()).padStart(2, "0")}`;
+  const timeRange = `${formattedLastYear}:${formattedToday}`;
+  return timeRange;
+}
+
+async function fetchState() {
+  const { format } = Intl.NumberFormat("en", { notation: "compact" });
+  const { data: contributorsData } = await request.getContributors();
+  contributors.value = contributorsData.map((item: Contributor) => ({
+    login: item.login,
+    html_url: item.html_url,
+    avatar_url: item.avatar_url,
+  }));
+  const { data: starData } = await request.getStar();
+  star.value = format(starData.stargazers_count);
+  const { data: downloadsData } = await request.getDownloads(getTimeRange());
+  downloads.value = format(downloadsData.downloads);
+}
+
+onMounted(() => {
+  fetchState();
+});
 </script>
 
 <template>
@@ -90,17 +52,14 @@ export default {
         :ui="{
           background: 'dark:bg-gradient-to-b from-gray-800 to-gray-900',
           shadow: 'dark:shadow-2xl',
-          body: {
-            background: 'bg-gray-50/50 dark:bg-gray-900/50'
-          },
           title: 'text-center lg:text-left',
-          links: 'justify-center lg:justify-start'
+          links: 'justify-center lg:justify-start',
         }"
       >
         <template #title>
           <span>
             因为热爱，
-            <br class="hidden lg:block">
+            <br />
             我们汇聚在一起。
           </span>
         </template>
@@ -108,11 +67,12 @@ export default {
         <template #links>
           <ClientOnly>
             <UAvatarGroup
-              :max="16" size="md"
+              :max="16"
+              size="md"
               class="flex-wrap-reverse [&_span:first-child]:text-xs justify-center"
             >
               <UTooltip
-                v-for="(contributor, index) of state.contributors"
+                v-for="(contributor, index) of contributors"
                 :key="index"
                 :text="contributor.login"
                 class="rounded-full"
@@ -130,10 +90,13 @@ export default {
                   loading="lazy"
                 >
                   <NuxtLink
-                    :to="`https://github.com/${contributor.login}`" :aria-label="contributor.login"
-                    target="_blank" class="focus:outline-none" tabindex="-1"
+                    :to="`https://github.com/${contributor.login}`"
+                    :aria-label="contributor.login"
+                    target="_blank"
+                    class="focus:outline-none"
+                    tabindex="-1"
                   >
-                    <span class="absolute inset-0" aria-hidden="true"/>
+                    <span class="absolute inset-0" aria-hidden="true" />
                   </NuxtLink>
                 </UAvatar>
               </UTooltip>
@@ -141,21 +104,31 @@ export default {
           </ClientOnly>
         </template>
 
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-8 lg:gap-16">
-          <NuxtLink class="text-center group" to="https://www.npmjs.com/package/hexo-theme-solitude" target="_blank">
+        <div
+          class="flex flex-col sm:flex-row items-center justify-center gap-8 lg:gap-16"
+        >
+          <NuxtLink
+            class="text-center group"
+            to="https://www.npmjs.com/package/hexo-theme-solitude"
+            target="_blank"
+          >
             <p
               class="text-6xl font-semibold text-gray-900 dark:text-white group-hover:text-primary-500 dark:group-hover:text-primary-400"
             >
-              {{ state.downloads }}+
+              {{ downloads }}+
             </p>
             <p>最近一年下载量</p>
           </NuxtLink>
 
-          <NuxtLink class="text-center group" to="https://github.com/valor-x/hexo-theme-solitude" target="_blank">
+          <NuxtLink
+            class="text-center group"
+            to="https://github.com/valor-x/hexo-theme-solitude"
+            target="_blank"
+          >
             <p
               class="text-6xl font-semibold text-gray-900 dark:text-white group-hover:text-primary-500 dark:group-hover:text-primary-400"
             >
-              {{ state.star }}+
+              {{ star }}+
             </p>
             <p>Star 数</p>
           </NuxtLink>
@@ -164,3 +137,4 @@ export default {
     </ULandingSection>
   </div>
 </template>
+~/server/api/user
