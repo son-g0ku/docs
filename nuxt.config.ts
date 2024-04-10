@@ -7,7 +7,8 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@nuxthq/studio',
     'nuxt-og-image',
-    '@nuxtjs/sitemap'
+    '@nuxtjs/sitemap',
+    "@nuxt/image"
   ],
   hooks: {
     'components:extend': (components) => {
