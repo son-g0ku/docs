@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import request from "~/composables/request";
+import request from '~/composables/request'
 
 interface Contributor {
   login: string;
@@ -7,40 +7,27 @@ interface Contributor {
   avatar_url: string;
 }
 
-const star = ref("0");
-const downloads = ref("0");
-const contributors: Ref<Contributor[]> = ref([]);
-
-function getTimeRange() {
-  const today = new Date();
-  const formattedToday = `${today.getFullYear()}-${String(
-    today.getMonth() + 1
-  ).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
-  const lastYear = new Date(new Date().setFullYear(today.getFullYear() - 1));
-  const formattedLastYear = `${lastYear.getFullYear()}-${String(
-    lastYear.getMonth() + 1
-  ).padStart(2, "0")}-${String(lastYear.getDate()).padStart(2, "0")}`;
-  const timeRange = `${formattedLastYear}:${formattedToday}`;
-  return timeRange;
-}
+const star = ref('0')
+const downloads = ref('0')
+const contributors: Ref<Contributor[]> = ref([])
 
 async function fetchState() {
-  const { format } = Intl.NumberFormat("en", { notation: "compact" });
-  const { data: contributorsData } = await request.getContributors();
+  const { format } = Intl.NumberFormat('en', { notation: 'compact' })
+  const { data: contributorsData } = await request.getContributors()
   contributors.value = contributorsData.map((item: Contributor) => ({
     login: item.login,
     html_url: item.html_url,
     avatar_url: item.avatar_url,
-  }));
-  const { data: starData } = await request.getStar();
-  star.value = format(starData.stargazers_count);
-  const { data: downloadsData } = await request.getDownloads(getTimeRange());
-  downloads.value = format(downloadsData.downloads);
+  }))
+  const { data: starData } = await request.getStar()
+  star.value = format(starData.data.star)
+  const { data: downloadsData } = await request.getDownloads()
+  downloads.value = format(downloadsData.data.downloads)
 }
 
 onMounted(() => {
-  fetchState();
-});
+  fetchState()
+})
 </script>
 
 <template>

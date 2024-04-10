@@ -15,7 +15,7 @@ useHead({
     { name: 'baidu-site-verification',content: 'codeva-gUX7ssU6Ed' }
   ],
   link: [
-    { rel: 'icon', href: 'https://7.isyangs.cn/34/65f43d1e0137b-34.png' }
+    { rel: 'icon', href: '/favicon.ico' }
   ],
   htmlAttrs: {
     lang: 'zh-CN'
@@ -25,8 +25,8 @@ useHead({
 useSeoMeta({
   titleTemplate: `%s - ${seo?.siteName}`,
   ogSiteName: seo?.siteName,
-  ogImage: 'https://7.isyangs.cn/34/65f43d568a918-34.png',
-  twitterImage: 'https://7.isyangs.cn/34/65f43d568a918-34.png',
+  ogImage: '/favicon.ico',
+  twitterImage: '/favicon.ico',
   twitterCard: 'summary_large_image'
 })
 

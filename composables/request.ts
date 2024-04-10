@@ -10,13 +10,13 @@ const request = {
   },
   getStar: () => {
     return http({
-      url: 'https://api.github.com/repos/valor-x/hexo-theme-solitude',
+      url: 'https://api.qjqq.cn/api/GitHubStar?username=valor-x&repo=hexo-theme-solitude',
       method: 'get'
     })
   },
-  getDownloads: (timeRange: string) => {
+  getDownloads: () => {
     return http({
-      url: `https://api.npmjs.org/downloads/point/${timeRange}/hexo-theme-solitude`,
+      url: 'https://api.qjqq.cn/api/Npmdown??packageName=hexo-theme-solitude',
       method: 'get'
     })
   }

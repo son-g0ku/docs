@@ -20,7 +20,13 @@
         <MDC :value="page.hero.title"/>
       </template>
 
-      <MDC :value="page.hero.code" tag="pre" class="prose prose-primary dark:prose-invert mx-auto"/>
+      <template #default>
+        <MDC :value="page.hero.code" tag="pre" class="prose prose-primary dark:prose-invert mx-auto"/>
+        <img
+          src="https://s3.qjqq.cn/47/6616165b0c3de.webp!color"
+          class="w-full"
+        />
+      </template>
     </ULandingHero>
 
     <CtaCard />
