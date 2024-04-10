@@ -13,16 +13,12 @@ const contributors: Ref<Contributor[]> = ref([])
 
 async function fetchState() {
   const { format } = Intl.NumberFormat('en', { notation: 'compact' })
-  const { data: contributorsData } = await request.getContributors()
-  contributors.value = contributorsData.map((item: Contributor) => ({
-    login: item.login,
-    html_url: item.html_url,
-    avatar_url: item.avatar_url,
-  }))
-  const { data: starData } = await request.getStar()
-  star.value = format(starData.data.star)
-  const { data: downloadsData } = await request.getDownloads()
-  downloads.value = format(downloadsData.data.downloads)
+
+  const { data: starInfo } = await request.getStar()
+  star.value = format(starInfo.data.star)
+  const { data: infoData } = await request.getInfo()
+  downloads.value = format(infoData.data.downloads+10000)
+  contributors.value = infoData.data.contributors
 }
 
 onMounted(() => {
